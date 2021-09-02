@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const api = 'http://3.18.221.247';
+const api = 'http://18.224.32.157';
 
 //  Users
 const getUsers = (callback) => {
