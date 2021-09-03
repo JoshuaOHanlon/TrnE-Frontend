@@ -74,6 +74,16 @@ const getTournaments = (callback) => {
     })
 };
 
+const getTournamentById = (id, callback) => {
+  axios.get(`${api}/db/tournament?id=${id}`)
+    .then((res) => {
+      callback(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+};
+
 const getTournamentByName = (name, callback) => {
   axios.get(`${api}/db/tournament?name=${name}`)
     .then((res) => {
@@ -114,4 +124,4 @@ const postTournament = (tournament, callback) => {
     })
 };
 
-export { getUsers, getUserByUsername, getUserByFirstname, getUserByLastname, getUserByIgn, postUser, getTournaments, getTournamentByName, getTournamentByGame, getTournamentByDate, postTournament };
+export { getUsers, getUserByUsername, getUserByFirstname, getUserByLastname, getUserByIgn, postUser, getTournaments, getTournamentById, getTournamentByName, getTournamentByGame, getTournamentByDate, postTournament };

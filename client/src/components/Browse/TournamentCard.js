@@ -3,6 +3,7 @@ import { TCardStyle, TCSImageCont, TCSInfoCont } from '../../styles/BrowseModule
 
 const TournamentCard = (props) => {
   const tournDate = new Date(props.trne.tournamentDate);
+  const tournRedirect = `/tournament/${props.trne.id}`;
 
   return (
     <TCardStyle>
@@ -14,7 +15,9 @@ const TournamentCard = (props) => {
           <span>{props.trne.game}</span>
         </div>
         <div className='nameCont'>
-          <p>{props.trne.name}</p>
+          <a href={tournRedirect}>
+            <p>{props.trne.name}</p>
+          </a>
         </div>
         <div className='dateCont'>
           <p>

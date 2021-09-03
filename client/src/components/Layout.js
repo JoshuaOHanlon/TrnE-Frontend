@@ -22,7 +22,7 @@ const Layout = () => {
           <Route path='/browse'>
             <Browse />
           </Route>
-          <Route path='/tournament'>
+          <Route path='/tournament/:id'>
             <TournamentListing />
           </Route>
           <Route path='/'>
