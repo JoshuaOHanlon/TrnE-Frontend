@@ -29,6 +29,7 @@ const TournamentListing = () => {
       <TournamentStyle>
         <h1>{tournament.name}</h1>
         <InformationModule onChange={handleChange} />
+        <hr />
         <Overview tournament={tournament} />
 
       </TournamentStyle>
@@ -38,7 +39,8 @@ const TournamentListing = () => {
       <TournamentStyle>
         <h1>{tournament.name}</h1>
         <InformationModule onChange={handleChange} />
-        <Participants />
+        <hr />
+        <Participants tournament={tournament} />
 
       </TournamentStyle>
     );

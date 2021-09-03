@@ -3,6 +3,12 @@ import styled from 'styled-components';
 const TournamentStyle = styled.div`
   width: 40%;
   padding-top: 15px;
+
+  hr {
+    width: 100%;
+    border-bottom: 1px solid #28303f;
+    height: 2px;
+  }
 `;
 
 const InformationContainer = styled.div`
@@ -13,6 +19,10 @@ const InformationContainer = styled.div`
     align-items: center;
     margin-top: 15px;
     font-size: 14px;
+
+    p {
+      cursor: pointer;
+    }
 
   }
 `;
