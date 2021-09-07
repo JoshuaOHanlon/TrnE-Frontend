@@ -49,9 +49,9 @@ const Participants = (props) => {
 
       </ParticipantContainer>
 
-      <Modal show={show.status} onHide={handleClose} >
+      <Modal show={show.status} onHide={handleClose} className="modalStyle" centered >
         <Modal.Header closeButton>
-          <Modal.Title id='modalStyle'>{show.user}</Modal.Title>
+          <Modal.Title >{show.user}</Modal.Title>
         </Modal.Header>
         <Modal.Body>Temp Body</Modal.Body>
         <Modal.Footer>

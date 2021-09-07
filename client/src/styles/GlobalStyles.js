@@ -5,6 +5,10 @@ const GlobalStyle = createGlobalStyle`
     background-color: #151b27;
     color: white;
   }
+
+  .modalStyle {
+    color: black;
+  }
 `;
 
 export default GlobalStyle;

@@ -11,11 +11,6 @@ const ParticipantsStyle = styled.div`
     font-size: 14px;
   }
 
-  #modalStyle {
-    background-color: grey;
-    color: black;
-  }
-
 `;
 
 const ParticipantContainer = styled.div`
