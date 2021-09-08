@@ -1,19 +1,18 @@
 import styled from 'styled-components';
 
-const CreateContainer = styled.div`
+const SignUpStyle = styled.div`
   width: 40%;
   margin-top: 20px;
 
-  .createTournamentTitle {
+  .signUpTitle {
     display: flex;
     justify-content: center;
   }
 `;
 
-const FormContStyle = styled.div`
-  margin-top: 20px;
+const SignUpForm = styled.div`
 
-  .formStyling {
+  .signUpFormStyling {
     color: black;
   }
 
@@ -22,4 +21,4 @@ const FormContStyle = styled.div`
   }
 `;
 
-export { CreateContainer, FormContStyle };
+export { SignUpStyle, SignUpForm };

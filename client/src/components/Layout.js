@@ -11,6 +11,8 @@ import Home from './Home/Home';
 import Browse from './Browse/Browse';
 import TournamentListing from './Listing/TournamentListing';
 import CreateTournament from './Create/CreateTournament';
+import SignUp from './Create/SignUp';
+import Login from './Create/Login';
 
 import { LayoutStyle } from '../styles/LayoutStyle';
 
@@ -28,6 +30,12 @@ const Layout = () => {
           </Route>
           <Route path='/create'>
             <CreateTournament />
+          </Route>
+          <Route path='/signup'>
+            <SignUp />
+          </Route>
+          <Route path='/login'>
+            <Login />
           </Route>
           <Route path='/'>
             <Home />
