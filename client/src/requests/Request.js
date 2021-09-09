@@ -124,4 +124,39 @@ const postTournament = (tournament, callback) => {
     })
 };
 
-export { getUsers, getUserByUsername, getUserByFirstname, getUserByLastname, getUserByIgn, postUser, getTournaments, getTournamentById, getTournamentByName, getTournamentByGame, getTournamentByDate, postTournament };
+const updateTournament = (id, tournament, callback) => {
+  axios.put(`${api}/db/tournament?id=${id}`, tournament)
+    .then((res) => {
+      callback(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+};
+
+const deleteTournament = (id, callback) => {
+  axios.delete(`${api}/db/tournament?id=${id}`)
+    .then((res) => {
+      callback(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+};
+
+export {
+  getUsers,
+  getUserByUsername,
+  getUserByFirstname,
+  getUserByLastname,
+  getUserByIgn,
+  postUser,
+  getTournaments,
+  getTournamentById,
+  getTournamentByName,
+  getTournamentByGame,
+  getTournamentByDate,
+  postTournament,
+  updateTournament,
+  deleteTournament
+};
