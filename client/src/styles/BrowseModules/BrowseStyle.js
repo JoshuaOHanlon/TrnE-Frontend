@@ -7,7 +7,29 @@ const BrowseStyle = styled.section`
 `;
 
 const BrowseCont = styled.div`
+  margin-top: 15px;
+  width: 50%;
+`;
 
+const BrowseTitle = styled.div`
+  margin-bottom: 15px;
+
+  hr {
+    width: 100%;
+    border-bottom: 1px solid #28303f;
+    height: 2px;
+  }
+`;
+
+const BrowseNav = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  color: #7e838c;
+
+  .browseBar {
+
+  }
 `;
 
 const TCardListStyle = styled.div`
@@ -17,4 +39,4 @@ const TCardListStyle = styled.div`
   flex-wrap: wrap;
 `;
 
-export { BrowseStyle, BrowseCont, TCardListStyle };
+export { BrowseStyle, BrowseCont, BrowseTitle, BrowseNav, TCardListStyle };

@@ -1,16 +1,18 @@
 import React from 'react';
 import { OverviewStyle } from '../../../styles/InfoModules/OverviewStyle';
 
-const Overview = () => {
+const Overview = (props) => {
+  const { tournament } = props;
+
   return(
     <OverviewStyle>
-      <img src="https://wp.stanforddaily.com/wp-content/uploads/2020/08/image-2.png" alt="valorant" />
+      <img src={tournament.picture} alt={tournament.name} />
       <hr />
       <div className='aboutContainer'>
         <h2 className='aboutTourn'>About This Tournament</h2>
         <h3>
           <p>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            {tournament.desc}
           </p>
           <p><br /></p>
           <p>

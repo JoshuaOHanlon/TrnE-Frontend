@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { BrowseStyle, BrowseCont, TCardListStyle } from '../../styles/BrowseModules/BrowseStyle';
+import { useHistory } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+
+import { BrowseStyle, BrowseCont, BrowseTitle, BrowseNav, TCardListStyle } from '../../styles/BrowseModules/BrowseStyle';
 import { getTournaments } from '../../requests/Request';
 import TournamentCard from './TournamentCard';
 
@@ -13,10 +16,25 @@ const Browse = () => {
     });
   });
 
+  let history = useHistory();
+
+  const createRedirect = () => {
+    history.push('/create');
+  }
+
   return (
     <BrowseStyle>
       <BrowseCont>
-        <h1>Browse</h1>
+        <BrowseTitle>
+          <h1>Browse Tournaments</h1>
+          <hr />
+          <BrowseNav>
+            <div className='browseBar'>
+              <p>Temp</p>
+            </div>
+            <Button variant='outline-light' onClick={createRedirect} >Create</Button>
+          </BrowseNav>
+        </BrowseTitle>
         <TCardListStyle>
           {
             tournaments.map((trne, i) => {

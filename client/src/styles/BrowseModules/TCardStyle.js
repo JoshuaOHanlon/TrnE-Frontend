@@ -35,6 +35,14 @@ const TCSInfoCont = styled.div`
   .nameCont {
     padding: 8px 5px 5px 10px;
     font-size: 20px;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #e3e1e1;
+    }
   }
 
   .dateCont {
