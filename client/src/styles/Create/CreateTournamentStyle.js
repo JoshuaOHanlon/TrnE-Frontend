@@ -20,6 +20,10 @@ const FormContStyle = styled.div`
   .photoStyle {
     color: white;
   }
+
+  .usersStyle {
+    color: white;
+  }
 `;
 
 export { CreateContainer, FormContStyle };

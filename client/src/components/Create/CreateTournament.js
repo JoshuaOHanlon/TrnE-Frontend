@@ -1,17 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
-
-import { getUsers } from '../../requests/Request';
+import DropdownMultiselect from 'react-multiselect-dropdown-bootstrap';
 
 import { CreateContainer, FormContStyle } from '../../styles/Create/CreateTournamentStyle';
+import { getUsers, postTournament } from '../../requests/Request';
 
-const CreateTournament = () => {
+const CreateTournament = (props) => {
   const [method, setMethod] = useState('upload');
   const [tournament, setTournament] = useState({});
+  const [users, setUsers] = useState([]);
+  const [selected, setSelected] = useState([]);
+  const [optionsArray, setOptionsArray] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [usersHash, setUsersHash] = useState({});
+
+  useEffect(() => {
+    getUsers((res) => {
+      setUsers(res.data);
+      const temp = [];
+      res.data.forEach(i => {
+        temp.push(i.username);
+        let hash = usersHash;
+        hash[i.username] = i;
+        setUsersHash(hash);
+      });
+      setOptionsArray(temp);
+      setLoading(false);
+    });
+  }, []);
+
+  let history = useHistory();
 
   const handleRadioChange = (e) => {
     setMethod(e.target.value);
@@ -25,8 +48,22 @@ const CreateTournament = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    selected.forEach(i => {
+      if (usersHash[i]) {
+        const newTournament = tournament;
+        if (newTournament.users) {
+          newTournament.users.push(usersHash[i]);
+        } else {
+          newTournament.users = [usersHash[i]];
+        }
+        setTournament(newTournament);
+      }
+    });
 
-    console.log(tournament);
+    postTournament(tournament, (res) => {
+      console.log(res);
+      history.push('/browse');
+    });
 
   };
 
@@ -39,6 +76,26 @@ const CreateTournament = () => {
   } else if (method === 'link') {
     photo = (
       <Form.Control onChange={handleChange} name='picture' placeholder='Image link' />
+    );
+  }
+
+  let dropdown;
+  if (loading) {
+    dropdown = (
+     <p>Loading</p>
+    );
+
+  } else {
+    dropdown = (
+      <DropdownMultiselect
+        options={optionsArray}
+        name="users"
+        placeholder='Select Users'
+        handleOnChange={(selected) => {
+          const current = selected;
+          setSelected(current);
+        }}
+      />
     );
   }
 
@@ -95,7 +152,21 @@ const CreateTournament = () => {
             </Form.Group>
           </Row>
 
-          <Form.Label className='photoStyle'>Photo</Form.Label>
+          <Row className='mb-3'>
+            <Form.Label as={Col} className='photoStyle'>Photo</Form.Label>
+            <Form.Label as={Col} className='usersStyle'>Users</Form.Label>
+          </Row>
+
+          <Row className='mb-3'>
+            <Form.Group as={Col} className='mb-3'>
+              { photo }
+            </Form.Group>
+
+            <Form.Group as={Col} className='mb-3'>
+              { dropdown }
+            </Form.Group>
+          </Row>
+
           <Row className='mb-3'>
             <Form.Group as={Col} className='mb-3 photoStyle'>
               <Form.Check
@@ -123,12 +194,6 @@ const CreateTournament = () => {
                 type='radio'
                 onChange={handleRadioChange.bind(this)}
               />
-            </Form.Group>
-          </Row>
-
-          <Row className='mb-3'>
-            <Form.Group as={Col} className='mb-3'>
-              { photo }
             </Form.Group>
           </Row>
 
