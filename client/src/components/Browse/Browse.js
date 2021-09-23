@@ -14,7 +14,7 @@ const Browse = () => {
     getTournaments((res) => {
       setTournaments(res.data);
     });
-  });
+  }, [tournaments]);
 
   let history = useHistory();
 
@@ -30,7 +30,7 @@ const Browse = () => {
           <hr />
           <BrowseNav>
             <div className='browseBar'>
-              <p>Temp</p>
+              <p>Total Tournaments: {tournaments.length}</p>
             </div>
             <Button variant='outline-light' onClick={createRedirect} >Create</Button>
           </BrowseNav>

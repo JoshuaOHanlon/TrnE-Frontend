@@ -11,9 +11,12 @@ const TCardStyle = styled.div`
 `;
 
 const TCSImageCont = styled.div`
+  display: flex;
+  justify-content: center;
+
   img {
     max-width: 100%;
-    height: auto;
+    height: 200px;
   }
 `;
 
