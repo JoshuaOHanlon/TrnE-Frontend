@@ -6,7 +6,7 @@ import {
   Link
 } from 'react-router-dom';
 
-import Nav from './Nav';
+import NavComp from './Nav';
 import Home from './Home/Home';
 import Browse from './Browse/Browse';
 import TournamentListing from './Listing/TournamentListing';
@@ -15,13 +15,14 @@ import SignUp from './Create/SignUp';
 import Login from './Create/Login';
 
 import { LayoutStyle } from '../styles/LayoutStyle';
+import UserSignup from './Auth/UserSignup';
 
 const Layout = () => {
 
   return (
     <Router>
       <LayoutStyle>
-        <Nav />
+        <NavComp />
         <Switch>
           <Route path='/browse'>
             <Browse />
@@ -31,6 +32,9 @@ const Layout = () => {
           </Route>
           <Route path='/create'>
             <CreateTournament />
+          </Route>
+          <Route path='/userSignup'>
+            <UserSignup />
           </Route>
           <Route path='/signup'>
             <SignUp />

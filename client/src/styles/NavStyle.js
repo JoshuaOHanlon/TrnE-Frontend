@@ -1,51 +1,27 @@
 import styled from 'styled-components';
 
 const NavContainer = styled.div`
-  background-color: #28303f;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  padding-top: 15px;
-  flex-wrap: wrap;
+  .navChanges {
+    background-color: black;
+    height: 80px;
+    text-transform: uppercase;
 
-  hr {
-    width: 85%;
-    border-bottom: 1px solid #28303f;
-    height: 2px;
-  }
+    .navbar-brand {
+      padding-right: 40px;
+      border-right: 2px solid #292d31;
+    }
 
-  .navCont {
-    width: 100%;
-  }
-
-  .logoContainer {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .menuContainer {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    padding-left: 30px;
 
     a {
-      color: #7e838c;
-      text-decoration: none;
+      margin-left: 15px;
+
     }
-    a:hover {
+    span {
+      color: #8ea2b0;
+    }
+    span:hover {
       color: white;
     }
-  }
-
-  .ruleCont {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
   }
 
 `;
