@@ -23,6 +23,9 @@ const NavComp = () => {
           <Nav className="me-auto">
             <Nav.Link href="/"><span>Home</span></Nav.Link>
             <Nav.Link href="/browse"><span>Browse Tournaments</span></Nav.Link>
+            <Nav.Link href="/create"><span>Create Tournament</span></Nav.Link>
+            <Nav.Link href="/profile"><span>Profile</span></Nav.Link>
+            {isAuthenticated ? <LogoutButton /> : <LoginButton />}
 
           </Nav>
         </Container>

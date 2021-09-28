@@ -41,6 +41,23 @@ const CarouselCont = styled.div`
     margin: auto;
   }
 
+  .slideContainer:hover .slideEffect {
+    opacity: 0.5;
+  }
+
+  .slideEffect {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    background-color: #ff4655;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+  }
+
   img {
     width: 100%;
     height: 35vh;

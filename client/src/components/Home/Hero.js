@@ -14,17 +14,32 @@ const Hero = () => {
           <p>Building community through Esports competitions, one tournament at a time.</p>
         </HeroText>
         <CarouselCont>
-          <Carousel controls>
+          <Carousel controls={false} indicators={false} >
             <Carousel.Item>
-              <img src="https://wp.stanforddaily.com/wp-content/uploads/2020/08/image-2.png" alt="First slide" />
+              <div className='slideContainer'>
+                <img src="https://wp.stanforddaily.com/wp-content/uploads/2020/08/image-2.png" alt="First slide" className='slideImg' />
+                <a href='/browse'>
+                  <div className='slideEffect' />
+                </a>
+              </div>
             </Carousel.Item>
 
             <Carousel.Item>
-              <img src="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt45d6c2043ff36e28/5e21837f146ca8115b2d3332/Champion-List.jpg" alt="Second slide" />
+              <div className='slideContainer'>
+                <img src="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt45d6c2043ff36e28/5e21837f146ca8115b2d3332/Champion-List.jpg" alt="Second slide" className='slideImg' />
+                <a href='/browse'>
+                  <div className='slideEffect' />
+                </a>
+              </div>
             </Carousel.Item>
 
             <Carousel.Item>
-              <img src="https://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperSmashBrosUltimate_02_image1600w.jpg" alt="Third slide" />
+              <div className='slideContainer'>
+                <img src="https://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperSmashBrosUltimate_02_image1600w.jpg" alt="Third slide"  className='slideImg' />
+                <a href='/browse'>
+                  <div className='slideEffect' />
+                </a>
+              </div>
             </Carousel.Item>
 
           </Carousel>

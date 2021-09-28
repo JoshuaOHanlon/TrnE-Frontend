@@ -13,6 +13,7 @@ import TournamentListing from './Listing/TournamentListing';
 import CreateTournament from './Create/CreateTournament';
 import SignUp from './Create/SignUp';
 import Login from './Create/Login';
+import Profile from './Auth/Profile';
 
 import { LayoutStyle } from '../styles/LayoutStyle';
 import UserSignup from './Auth/UserSignup';
@@ -41,6 +42,9 @@ const Layout = () => {
           </Route>
           <Route path='/login'>
             <Login />
+          </Route>
+          <Route path='/profile'>
+            <Profile />
           </Route>
           <Route path='/'>
             <Home />

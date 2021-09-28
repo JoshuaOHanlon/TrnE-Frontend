@@ -22,6 +22,17 @@ const NavContainer = styled.div`
     span:hover {
       color: white;
     }
+
+    button {
+      text-transform: uppercase;
+      color: #8ea2b0;
+      border: none;
+      margin-left: 15px;
+    }
+    button:hover {
+      background-color: unset !important;
+      color: white;
+    }
   }
 
 `;
