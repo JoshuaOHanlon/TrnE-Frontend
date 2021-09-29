@@ -19,8 +19,6 @@ const Login = () => {
     setUser(newUser);
   };
 
-  let history = useHistory();
-
   const handleSubmit = (e) => {
     //  TODO: Handle Auth
     e.preventDefault();

@@ -22,12 +22,13 @@ const UserSignup = () => {
     if (isAuthenticated) {
       getUserByUsername(user.nickname, (res) => {
         if (res.data === '') {
+          const username = user['https://myapp.example.com/username'];
           const newUser = {
-            username: user.username,
+            username: username,
             password: user.password,
-            firstName: user.given_name || user.username,
-            lastName: user.family_name || user.username,
-            ign: user.username
+            firstName: user.given_name || username,
+            lastName: user.family_name || username,
+            ign: username
           };
 
           postUser(newUser, (res) => {
