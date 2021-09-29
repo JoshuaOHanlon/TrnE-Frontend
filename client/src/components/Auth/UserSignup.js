@@ -41,7 +41,8 @@ const UserSignup = () => {
           <div>Loaded</div>
         )
       );
-    } else {
+    }
+    if (!isLoading) {
       history.push('/');
 
       return (

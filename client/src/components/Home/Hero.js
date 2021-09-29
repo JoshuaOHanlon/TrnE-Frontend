@@ -42,6 +42,15 @@ const Hero = () => {
               </div>
             </Carousel.Item>
 
+            <Carousel.Item>
+              <div className='slideContainer'>
+                <img src="https://i0.wp.com/thegamehaus.com/wp-content/uploads/2020/10/super-smash-bros-melee-banner.jpg?fit=960%2C539&ssl=1" alt="Fourth slide"  className='slideImg' />
+                <a href='/browse'>
+                  <div className='slideEffect' />
+                </a>
+              </div>
+            </Carousel.Item>
+
           </Carousel>
         </CarouselCont>
       </div>

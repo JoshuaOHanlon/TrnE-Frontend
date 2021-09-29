@@ -1,6 +1,5 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { useHistory } from 'react-router-dom';
 
 import { ProfileStyle } from '../../styles/Create/ProfileStyle';
 
@@ -11,7 +10,7 @@ const Profile = (props) => {
     return <div>Loading ...</div>;
   };
 
-  if (!isAuthenticated) {
+  if (!isLoading && !isAuthenticated) {
     loginWithRedirect();
     return (
       <div>Loading ...</div>

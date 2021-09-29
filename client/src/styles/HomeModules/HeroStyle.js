@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const HeroStyle = styled.section`
   margin-top: 5vh;
   height: 50vh;
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -23,7 +23,8 @@ const HeroStyle = styled.section`
 
 const HeroText = styled.div`
   margin-top: 5%;
-  width: 25vw;
+  margin-right: 20px;
+  width: 18vw;
 
   h2 {
     text-transform: uppercase;
@@ -36,7 +37,7 @@ const HeroText = styled.div`
 
 const CarouselCont = styled.div`
   .carousel {
-    width: 30vw;
+    width: 35vw;
     height: 35vh;
     margin: auto;
   }

@@ -18,7 +18,7 @@ const Participants = (props) => {
 
   return(
     <ParticipantsStyle>
-      <h1>Participants TEMP</h1>
+      <h1>Participants</h1>
 
       <div className='countCont'>
         <p>PARTICIPANTS ({props.tournament.users.length})</p>
