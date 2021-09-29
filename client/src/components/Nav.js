@@ -10,9 +10,7 @@ import Container from 'react-bootstrap/Container'
 const NavComp = () => {
   const { isAuthenticated, isLoading } = useAuth0();
 
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  };
+
 
   return (
     <NavContainer>

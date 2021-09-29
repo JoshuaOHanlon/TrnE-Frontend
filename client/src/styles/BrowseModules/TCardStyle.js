@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const TCardStyle = styled.div`
+  margin-bottom: 40px;
   background-color: #1c222b;
   border-radius: 4px;
   border: 2px solid #28303f;

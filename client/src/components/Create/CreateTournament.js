@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -18,6 +19,8 @@ const CreateTournament = (props) => {
   const [optionsArray, setOptionsArray] = useState([]);
   const [loading, setLoading] = useState(true);
   const [usersHash, setUsersHash] = useState({});
+
+  const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0();
 
   useEffect(() => {
     getUsers((res) => {
@@ -76,6 +79,13 @@ const CreateTournament = (props) => {
   } else if (method === 'link') {
     photo = (
       <Form.Control onChange={handleChange} name='picture' placeholder='Image link' />
+    );
+  }
+
+  if (!isLoading && !isAuthenticated) {
+    loginWithRedirect();
+    return (
+      <div>Loading ...</div>
     );
   }
 
