@@ -57,7 +57,21 @@ const Participants = (props) => {
   };
 
   const handleLeave = (e) => {
-    console.log('Leave');
+    /*
+      Get tournament details, remove user from users arr, Post new tournament
+    */
+    const currentUsername = user['https://myapp.example.com/username'];
+    const currTournament = props.tournament;
+    let users = currTournament.users;
+    const filteredUsers = users.filter((i) => {
+      return i.username !== currentUsername;
+    });
+    currTournament.users = filteredUsers;
+
+    updateTournament(props.tournament.id, currTournament, (res) => {
+      console.log(res);
+    });
+
   };
 
   return(
