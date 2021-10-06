@@ -59,6 +59,7 @@ const Participants = (props) => {
   const handleLeave = (e) => {
     /*
       Get tournament details, remove user from users arr, Post new tournament
+      To be tested
     */
     const currentUsername = user['https://myapp.example.com/username'];
     const currTournament = props.tournament;
