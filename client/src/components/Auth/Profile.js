@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 
 import { ProfileStyle } from '../../styles/Create/ProfileStyle';
+import TournamentCard from '../Browse/TournamentCard';
 
 const Profile = (props) => {
   const { user, isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
@@ -21,6 +22,8 @@ const Profile = (props) => {
   if (!isLoading && isAuthenticated) {
     username = user['https://myapp.example.com/username'];
   }
+
+  //  TODO: Import tournament card component
 
   return (
     isAuthenticated && (
