@@ -8,7 +8,7 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container'
 
 const NavComp = () => {
-  const { isAuthenticated, isLoading } = useAuth0();
+  const { isAuthenticated } = useAuth0();
 
 
 
