@@ -13,7 +13,7 @@ const Participants = (props) => {
   });
   const [joined, setJoined] = useState(false);
 
-  const { user, isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
+  const { user, isAuthenticated, loginWithRedirect } = useAuth0();
 
   useEffect(() => {
     if (isAuthenticated) {
