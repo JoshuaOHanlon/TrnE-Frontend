@@ -1,19 +1,78 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
 
 import { ParticipantsStyle, ParticipantContainer, ParticipantModule } from '../../../styles/InfoModules/ParticipantsStyle';
+import { getUserByUsername, updateTournament, updateUser } from '../../../requests/Request';
 
 const Participants = (props) => {
   const [show, setShow] = useState({
     status: false,
     user: {}
   });
+  const [joined, setJoined] = useState(false);
+
+  const { user, isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      const currentUsername = user['https://myapp.example.com/username'];
+      props.tournament.users.forEach(i => {
+        if (i.username === currentUsername) {
+          setJoined(true);
+        }
+      });
+    }
+  }, []);
 
   const handleClose = () => setShow({status: false});
   const handleShow = (event) => {
     const user = event.target.textContent
     setShow({ status: true, user})
+  };
+
+  const handleJoin = (e) => {
+    if (isAuthenticated) {
+      const currentUsername = user['https://myapp.example.com/username'];
+      let newUser = {};
+      getUserByUsername(currentUsername, (res) => {
+        console.log(res);
+        newUser = res.data;
+        const newTrne = props.tournament;
+        newTrne.users.push(newUser);
+
+        updateTournament(props.tournament.id, newTrne, (res) => {
+          console.log(res);
+        });
+        updateUser(currentUsername, newUser, (res) => {
+          console.log(res);
+        });
+
+      });
+
+    } else {
+      loginWithRedirect();
+    }
+  };
+
+  const handleLeave = (e) => {
+    /*
+      Get tournament details, remove user from users arr, Post new tournament
+      To be tested
+    */
+    const currentUsername = user['https://myapp.example.com/username'];
+    const currTournament = props.tournament;
+    let users = currTournament.users;
+    const filteredUsers = users.filter((i) => {
+      return i.username !== currentUsername;
+    });
+    currTournament.users = filteredUsers;
+
+    updateTournament(props.tournament.id, currTournament, (res) => {
+      console.log(res);
+    });
+
   };
 
   return(
@@ -22,6 +81,9 @@ const Participants = (props) => {
 
       <div className='countCont'>
         <p>PARTICIPANTS ({props.tournament.users.length})</p>
+        {
+          joined ? <Button variant='outline-dark' onClick={handleLeave}>Leave</Button> : <Button variant='outline-dark' onClick={handleJoin}>Join</Button>
+        }
       </div>
 
       <ParticipantContainer>
@@ -55,7 +117,7 @@ const Participants = (props) => {
         </Modal.Header>
         <Modal.Body>Temp Body</Modal.Body>
         <Modal.Footer>
-          <Button variant='online-dark' onClick={handleClose}>
+          <Button variant='outline-dark' onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>

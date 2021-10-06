@@ -63,6 +63,26 @@ const postUser = (user, callback) => {
     })
 };
 
+const updateUser = (username, user, callback) => {
+  axios.put(`${api}/db/users?username=${username}`, user)
+    .then((res) => {
+      callback(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+};
+
+const deleteUser = (id, callback) => {
+  axios.delete(`${api}/db/user?id=${id}`)
+  .then((res) => {
+    callback(res);
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+};
+
 //  Tournaments
 const getTournaments = (callback) => {
   axios.get(`${api}/db/tournament`)
@@ -151,6 +171,8 @@ export {
   getUserByLastname,
   getUserByIgn,
   postUser,
+  updateUser,
+  deleteUser,
   getTournaments,
   getTournamentById,
   getTournamentByName,

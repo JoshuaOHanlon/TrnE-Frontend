@@ -17,17 +17,23 @@ const Profile = (props) => {
     );
   }
 
+  let username;
+  if (!isLoading && isAuthenticated) {
+    username = user['https://myapp.example.com/username'];
+  }
+
   return (
     isAuthenticated && (
       <ProfileStyle>
-        <div>
-          <img src={user.picture} alt={user.name} />
-          <h2>{user.name}</h2>
-          <p>{user.email}</p>
-          <p>{user.nickname}</p>
-          <p>{user.family_name}</p>
-          <p>{user.given_name}</p>
-          <p>{user.username}</p>
+        <div className='profCont'>
+          <div className='imgCont'>
+            <img src={user.picture} alt={user.name} />
+          </div>
+          <div className='nameCont'>
+            <span>Username</span>
+            <h2>{username}</h2>
+            <p>{user.email}</p>
+          </div>
         </div>
       </ProfileStyle>
     )

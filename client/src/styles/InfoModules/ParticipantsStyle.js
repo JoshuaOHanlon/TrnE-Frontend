@@ -6,9 +6,22 @@ const ParticipantsStyle = styled.div`
   flex-wrap: wrap;
 
   .countCont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     color: #d0d0d0;
     font-size: 14px;
+    margin-bottom: 20px;
+
+    button {
+      color: white;
+    }
+
+    p {
+      padding-top: 15px;
+    }
+
   }
 
 `;
