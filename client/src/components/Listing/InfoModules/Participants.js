@@ -44,6 +44,7 @@ const Participants = (props) => {
 
         updateTournament(props.tournament.id, newTrne, (res) => {
           console.log(res);
+          setJoined(true);
         });
         updateUser(currentUsername, newUser, (res) => {
           console.log(res);
@@ -71,6 +72,7 @@ const Participants = (props) => {
 
     updateTournament(props.tournament.id, currTournament, (res) => {
       console.log(res);
+      setJoined(false);
     });
 
   };

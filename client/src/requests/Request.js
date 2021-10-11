@@ -4,7 +4,7 @@ const api = 'http://18.117.136.113';
 
 //  Users
 const getUsers = (callback) => {
-  axios.get(`${api}/db/users/`)
+  axios.get(`${api}/db/users`)
     .then((res) => {
       callback(res);
     })
@@ -14,7 +14,7 @@ const getUsers = (callback) => {
 };
 
 const getUserByUsername = (username, callback) => {
-  axios.get(`${api}/db/users?username=${username}/`)
+  axios.get(`${api}/db/users?username=${username}`)
     .then((res) => {
       callback(res);
     })
@@ -24,7 +24,7 @@ const getUserByUsername = (username, callback) => {
 };
 
 const getUserByFirstname = (firstName, callback) => {
-  axios.get(`${api}/db/users?firstName=${firstName}/`)
+  axios.get(`${api}/db/users?firstName=${firstName}`)
     .then((res) => {
       callback(res);
     })
@@ -34,7 +34,7 @@ const getUserByFirstname = (firstName, callback) => {
 };
 
 const getUserByLastname = (lastName, callback) => {
-  axios.get(`${api}/db/users?lastName=${lastName}/`)
+  axios.get(`${api}/db/users?lastName=${lastName}`)
     .then((res) => {
       callback(res);
     })
@@ -44,7 +44,7 @@ const getUserByLastname = (lastName, callback) => {
 };
 
 const getUserByIgn = (ign, callback) => {
-  axios.get(`${api}/db/users?ign=${ign}/`)
+  axios.get(`${api}/db/users?ign=${ign}`)
     .then((res) => {
       callback(res);
     })
@@ -54,7 +54,7 @@ const getUserByIgn = (ign, callback) => {
 };
 
 const postUser = (user, callback) => {
-  axios.post(`${api}/db/users/`, user)
+  axios.post(`${api}/db/users`, user)
     .then((res) => {
       callback(res);
     })
@@ -64,7 +64,7 @@ const postUser = (user, callback) => {
 };
 
 const updateUser = (username, user, callback) => {
-  axios.put(`${api}/db/users?username=${username}/`, user)
+  axios.put(`${api}/db/users?username=${username}`, user)
     .then((res) => {
       callback(res);
     })
@@ -74,7 +74,7 @@ const updateUser = (username, user, callback) => {
 };
 
 const deleteUser = (id, callback) => {
-  axios.delete(`${api}/db/user?id=${id}/`)
+  axios.delete(`${api}/db/user?id=${id}`)
   .then((res) => {
     callback(res);
   })
@@ -85,7 +85,7 @@ const deleteUser = (id, callback) => {
 
 //  Tournaments
 const getTournaments = (callback) => {
-  axios.get(`${api}/db/tournament/`)
+  axios.get(`${api}/db/tournament`)
     .then((res) => {
       callback(res);
     })
@@ -95,7 +95,7 @@ const getTournaments = (callback) => {
 };
 
 const getTournamentById = (id, callback) => {
-  axios.get(`${api}/db/tournament?id=${id}/`)
+  axios.get(`${api}/db/tournament?id=${id}`)
     .then((res) => {
       callback(res);
     })
@@ -105,7 +105,7 @@ const getTournamentById = (id, callback) => {
 };
 
 const getTournamentByName = (name, callback) => {
-  axios.get(`${api}/db/tournament?name=${name}/`)
+  axios.get(`${api}/db/tournament?name=${name}`)
     .then((res) => {
       callback(res);
     })
@@ -115,7 +115,7 @@ const getTournamentByName = (name, callback) => {
 };
 
 const getTournamentByGame = (game, callback) => {
-  axios.get(`${api}/db/tournament?game=${game}/`)
+  axios.get(`${api}/db/tournament?game=${game}`)
     .then((res) => {
       callback(res);
     })
@@ -125,7 +125,17 @@ const getTournamentByGame = (game, callback) => {
 };
 
 const getTournamentByDate = (date, callback) => {
-  axios.get(`${api}/db/tournament?date=${date}/`)
+  axios.get(`${api}/db/tournament?date=${date}`)
+    .then((res) => {
+      callback(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+};
+
+const getTournamentByUserUsername = (user, callback) => {
+  axios.get(`${api}/db/tournament?user=${user}`)
     .then((res) => {
       callback(res);
     })
@@ -135,7 +145,7 @@ const getTournamentByDate = (date, callback) => {
 };
 
 const postTournament = (tournament, callback) => {
-  axios.post(`${api}/db/tournament/`, tournament)
+  axios.post(`${api}/db/tournament`, tournament)
     .then((res) => {
       callback(res);
     })
@@ -145,7 +155,7 @@ const postTournament = (tournament, callback) => {
 };
 
 const updateTournament = (id, tournament, callback) => {
-  axios.put(`${api}/db/tournament?id=${id}/`, tournament)
+  axios.put(`${api}/db/tournament?id=${id}`, tournament)
     .then((res) => {
       callback(res);
     })
@@ -155,7 +165,7 @@ const updateTournament = (id, tournament, callback) => {
 };
 
 const deleteTournament = (id, callback) => {
-  axios.delete(`${api}/db/tournament?id=${id}/`)
+  axios.delete(`${api}/db/tournament?id=${id}`)
     .then((res) => {
       callback(res);
     })
@@ -178,6 +188,7 @@ export {
   getTournamentByName,
   getTournamentByGame,
   getTournamentByDate,
+  getTournamentByUserUsername,
   postTournament,
   updateTournament,
   deleteTournament
