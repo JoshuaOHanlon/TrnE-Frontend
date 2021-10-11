@@ -134,6 +134,16 @@ const getTournamentByDate = (date, callback) => {
     })
 };
 
+const getTournamentByUserUsername = (user, callback) => {
+  axios.get(`${api}/db/tournament?user=${user}`)
+    .then((res) => {
+      callback(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+};
+
 const postTournament = (tournament, callback) => {
   axios.post(`${api}/db/tournament`, tournament)
     .then((res) => {
@@ -178,6 +188,7 @@ export {
   getTournamentByName,
   getTournamentByGame,
   getTournamentByDate,
+  getTournamentByUserUsername,
   postTournament,
   updateTournament,
   deleteTournament
