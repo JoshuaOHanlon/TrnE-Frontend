@@ -43,7 +43,7 @@ const Profile = (props) => {
       <ProfileStyle>
         <div className='profCont'>
           <div className='imgCont'>
-            <img src={user.picture} alt={user.name} />
+            <img src={`https://avatars.dicebear.com/api/human/${username}.svg`} alt={user.name} />
           </div>
           <div className='usernameCont'>
             <span>Username</span>
