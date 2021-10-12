@@ -1,7 +1,18 @@
 import styled from "styled-components";
 
 const ProfileStyle = styled.section`
+  width: 50vw;
 
+  hr {
+    width: 100%;
+    border-bottom: 1px solid #28303f;
+    height: 2px;
+    margin-bottom: 20px;
+  }
+
+  .userTrneBar {
+    color: #7e838c;
+  }
 
   .profCont {
     margin-top: 50px;
@@ -12,7 +23,8 @@ const ProfileStyle = styled.section`
 
   }
 
-  .nameCont {
+  .usernameCont {
+    margin-left: 15px;
 
     span {
       text-transform: uppercase;
