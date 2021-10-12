@@ -9,7 +9,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import DropdownMultiselect from 'react-multiselect-dropdown-bootstrap';
 
 import { CreateContainer, FormContStyle } from '../../styles/Create/CreateTournamentStyle';
-import { getUsers, postTournament } from '../../requests/Request';
+import { getUserByUsername, getUsers, postTournament } from '../../requests/Request';
 
 const CreateTournament = (props) => {
   const [method, setMethod] = useState('upload');
@@ -20,7 +20,7 @@ const CreateTournament = (props) => {
   const [loading, setLoading] = useState(true);
   const [usersHash, setUsersHash] = useState({});
 
-  const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0();
+  const { user, isLoading, isAuthenticated, loginWithRedirect } = useAuth0();
 
   useEffect(() => {
     getUsers((res) => {
@@ -38,6 +38,11 @@ const CreateTournament = (props) => {
   }, []);
 
   let history = useHistory();
+  let username, userData;
+  if (!isLoading && isAuthenticated) {
+    username = user['https://myapp.example.com/username'];
+    userData = user['https://myapp.example.com/user_metadata'];
+  }
 
   const handleRadioChange = (e) => {
     setMethod(e.target.value);
@@ -62,6 +67,10 @@ const CreateTournament = (props) => {
         setTournament(newTournament);
       }
     });
+
+    const tempTrne = tournament;
+    tempTrne.owner = username;
+    setTournament(tempTrne);
 
     postTournament(tournament, (res) => {
       console.log(res);

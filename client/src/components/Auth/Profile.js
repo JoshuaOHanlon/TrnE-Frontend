@@ -32,12 +32,11 @@ const Profile = (props) => {
     );
   }
 
-  let username;
+  let username, userData;
   if (!isLoading && isAuthenticated) {
     username = user['https://myapp.example.com/username'];
+    userData = user['https://myapp.example.com/user_metadata'];
   }
-
-  //  TODO: Import tournament card component
 
   return (
     isAuthenticated && (
@@ -46,13 +45,22 @@ const Profile = (props) => {
           <div className='imgCont'>
             <img src={user.picture} alt={user.name} />
           </div>
-          <div className='nameCont'>
+          <div className='usernameCont'>
             <span>Username</span>
             <h2>{username}</h2>
-            <p>{user.email}</p>
+            <span>Name</span>
+            <p>{userData.firstName} {userData.lastName}</p>
           </div>
         </div>
+        <div>
+          <h3>{username}'s Tournaments</h3>
+        </div>
+        <hr />
+        <div className='userTrneBar'>
+          <p>Total Tournaments: {userTournaments.length}</p>
+        </div>
         <TCardListStyle>
+
           {
             userTournaments.map((trne, i) => {
               return (

@@ -4,6 +4,11 @@ const TournamentStyle = styled.div`
   width: 40%;
   padding-top: 15px;
 
+  .trneNameDeleteCont {
+    display: flex;
+    justify-content: space-between;
+  }
+
   hr {
     width: 100%;
     border-bottom: 1px solid #28303f;
