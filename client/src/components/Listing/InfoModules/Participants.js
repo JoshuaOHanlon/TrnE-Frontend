@@ -101,7 +101,7 @@ const Participants = (props) => {
 
                   <div className='profileCont'>
                     { /*  TODO - Replace img with User image in DB  */ }
-                    <img src='https://www.meme-arsenal.com/memes/f1f805d5b57de55566c487ced9971fc2.jpg' alt='profile' />
+                    <img src={`https://avatars.dicebear.com/api/human/${user.username}.svg`} alt='profile' />
                   </div>
 
                 </div>

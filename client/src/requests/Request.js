@@ -174,6 +174,16 @@ const deleteTournament = (id, callback) => {
     })
 };
 
+const getAvatar = (username, callback) => {
+  axios.get(`https://avatars.dicebear.com/api/human/${username}.svg`)
+    .then((res) => {
+      callback(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 export {
   getUsers,
   getUserByUsername,
@@ -191,5 +201,6 @@ export {
   getTournamentByUserUsername,
   postTournament,
   updateTournament,
-  deleteTournament
+  deleteTournament,
+  getAvatar
 };
