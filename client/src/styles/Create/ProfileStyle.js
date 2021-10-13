@@ -23,8 +23,14 @@ const ProfileStyle = styled.section`
 
   }
 
+  .imgCont {
+    width: 100%;
+    height: 100%;
+  }
+
   .usernameCont {
-    margin-left: 15px;
+    margin-left: 10px;
+    margin-top: 15px;
 
     span {
       text-transform: uppercase;
